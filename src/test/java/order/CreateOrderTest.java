@@ -65,6 +65,7 @@ public class CreateOrderTest {
         UserCredentials creds = UserCredentials.from(user);
         userClient.logout(token);
         Order order = orderClient.createOrderWihtoutAuthUser(ingredients);
+        token = userClient.login(creds);
         assertNull(message, order.getIngredients());
         assertNull(message, order.get_id());
         assertNull(message, order.getOwner());
@@ -72,7 +73,6 @@ public class CreateOrderTest {
         assertNull(message, order.getName());
         assertTrue(message, order.getNumber() > 0);
         assertEquals(message, order.getPrice(), 0);
-        token = userClient.login(creds);
     }
 
     @Test

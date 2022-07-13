@@ -89,8 +89,8 @@ public class UserDataChangeTest {
         UserCredentials creds = UserCredentials.from(user);
         userClient.logout(token);
         String actualMessage = userClient.changeUserRejection(jsonWithNewEmail.toString());
-        assertEquals(message, expectedMessage, actualMessage);
         token = userClient.login(creds);
+        assertEquals(message, expectedMessage, actualMessage);
         assertEquals(message, expectedOldEmail, userClient.getUserDataEmail(token));
     }
 
@@ -107,8 +107,8 @@ public class UserDataChangeTest {
         UserCredentials creds = UserCredentials.from(user);
         userClient.logout(token);
         String actualMessage = userClient.changeUserRejection(jsonWithNewName.toString());
-        assertEquals(message, expectedMessage, actualMessage);
         token = userClient.login(creds);
+        assertEquals(message, expectedMessage, actualMessage);
         assertEquals(message, expectedOldName, userClient.getUserDataName(token));
     }
 
@@ -124,8 +124,8 @@ public class UserDataChangeTest {
         UserCredentials creds = UserCredentials.from(user);
         userClient.logout(token);
         String actualMessage = userClient.changeUserRejection(jsonWithNewPassword.toString());
-        assertEquals(message, expectedMessage, actualMessage);
         token = userClient.login(creds);
+        assertEquals(message, expectedMessage, actualMessage);
         assertNotNull(message, token.getAccessToken());
         assertNotNull(message, token.getRefreshToken());
     }

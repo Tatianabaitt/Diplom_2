@@ -68,7 +68,7 @@ public class GetOrdersUserTest {
         Order order = orderClient.createOrderWithAuthUser(token, ingredients);
         userClient.logout(token);
         String actualMessage = orderClientNew.getOrderForNotAuthUser();
-        assertEquals(message, actualMessage, expectedMessage);
         token = userClient.login(creds);
+        assertEquals(message, actualMessage, expectedMessage);
     }
 }
